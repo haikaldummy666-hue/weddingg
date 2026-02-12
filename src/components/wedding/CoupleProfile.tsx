@@ -3,29 +3,29 @@ import { Instagram } from "lucide-react";
 
 export const CoupleProfile = () => {
   return (
-    <section className="py-24 px-4 overflow-hidden relative">
+    <section className="py-16 md:py-24 px-4 overflow-hidden relative">
       {/* Luxury Background Elements */}
       <div className="absolute top-20 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-20 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
       
       {/* Giant Watermark Text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 opacity-5 pointer-events-none whitespace-nowrap">
-        <h1 className="font-script text-[20rem] text-gold animate-float-slow">Love</h1>
+        <h1 className="font-script text-[10rem] md:text-[20rem] text-gold animate-float-slow">Love</h1>
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-24 relative">
-          <p className="text-sm font-sans uppercase tracking-[0.5em] text-gold mb-4">Groom & Bride</p>
-          <h2 className="font-serif text-4xl md:text-6xl text-white">The Happy Couple</h2>
+        <div className="text-center mb-12 md:mb-24 relative">
+          <p className="text-xs md:text-sm font-sans uppercase tracking-[0.5em] text-gold mb-4">Groom & Bride</p>
+          <h2 className="font-serif text-3xl md:text-6xl text-white">The Happy Couple</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-6" />
         </div>
 
         {/* Editorial Layout - The "Vogue" Style */}
-        <div className="flex flex-col gap-32">
+        <div className="flex flex-col gap-20 md:gap-32">
           
           {/* BRIDE SECTION - Left Aligned */}
           <div className="relative group">
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div className="flex flex-col md:flex-row items-center gap-12 md:gap-12">
               
               {/* Photo Area with Floating Elements */}
               <div className="relative w-full md:w-1/2 flex justify-center md:justify-end">
@@ -44,7 +44,7 @@ export const CoupleProfile = () => {
                      </div>
 
                      {/* Floating Name (Overlapping) */}
-                     <h2 className="absolute -bottom-6 -right-10 md:-right-16 font-script text-5xl md:text-7xl text-gold drop-shadow-lg z-20 mix-blend-screen opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-6 group-hover:translate-y-0">
+                     <h2 className="absolute -bottom-4 right-0 md:-bottom-6 md:-right-16 font-script text-5xl md:text-7xl text-gold drop-shadow-lg z-20 mix-blend-screen opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 translate-y-0 md:translate-y-6 md:group-hover:translate-y-0">
                         {weddingConfig.bride.name}
                      </h2>
                 </div>
@@ -53,7 +53,7 @@ export const CoupleProfile = () => {
               {/* Text Info Area */}
               <div className="w-full md:w-1/2 text-center md:text-left md:pl-8">
                  <div className="inline-block border-b border-gold/50 pb-2 mb-4">
-                    <span className="font-sans text-xs tracking-[0.4em] text-white/60">THE BRIDE</span>
+                    <span className="font-sans text-[10px] md:text-xs tracking-[0.4em] text-white/60">THE BRIDE</span>
                  </div>
                  <h3 className="font-serif text-2xl md:text-4xl text-white mb-4 leading-tight">
                     {weddingConfig.bride.fullName}
@@ -70,7 +70,7 @@ export const CoupleProfile = () => {
 
           {/* GROOM SECTION - Right Aligned (Reversed) */}
           <div className="relative group">
-            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
+            <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-12">
               
               {/* Photo Area */}
               <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
@@ -89,7 +89,7 @@ export const CoupleProfile = () => {
                      </div>
 
                      {/* Floating Name (Overlapping) */}
-                     <h2 className="absolute -top-6 -left-10 md:-left-16 font-script text-5xl md:text-7xl text-gold drop-shadow-lg z-20 mix-blend-screen opacity-0 group-hover:opacity-100 transition-all duration-700 -translate-y-6 group-hover:translate-y-0">
+                     <h2 className="absolute -top-4 left-0 md:-top-6 md:-left-16 font-script text-5xl md:text-7xl text-gold drop-shadow-lg z-20 mix-blend-screen opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 translate-y-0 md:-translate-y-6 md:group-hover:translate-y-0">
                         {weddingConfig.groom.name}
                      </h2>
                 </div>
