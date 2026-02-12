@@ -134,24 +134,26 @@ export const OpeningScreen = ({ onOpen, onStartOpening, guestName }: OpeningScre
           )}
   
           {/* Open button */}
-          <Button
-            onClick={handleOpen}
-            className="group relative w-full md:w-auto px-12 md:px-16 py-6 md:py-8 text-lg rounded-sm overflow-hidden transition-all duration-500 hover:scale-105 border border-gold/30 bg-black/20 hover:bg-black/40 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.1)] mb-2 md:mb-0"
-            variant="ghost"
-          >
-            {/* Button Shine Effect */}
-            <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-x-12 group-hover:animate-shine" />
-            
-            <span className="relative z-10 flex flex-col items-center text-white font-serif tracking-[0.15em]">
-              <span className="text-lg md:text-xl">BUKA UNDANGAN</span>
-            </span>
-            
-            {/* Button Corner Borders */}
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-gold" />
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-gold" />
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-gold" />
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-gold" />
-          </Button>
+          <div className="flex justify-center mb-6 md:mb-0">
+            <Button
+              onClick={handleOpen}
+              className="group relative w-auto min-w-[200px] px-8 py-6 md:px-16 md:py-8 text-base md:text-lg rounded-sm overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 border border-gold/40 bg-black/30 hover:bg-black/50 backdrop-blur-md shadow-[0_0_25px_rgba(212,175,55,0.15)]"
+              variant="ghost"
+            >
+              {/* Button Shine Effect */}
+              <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-x-12 group-hover:animate-shine" />
+              
+              <span className="relative z-10 flex flex-col items-center text-white font-serif tracking-[0.2em] group-active:text-gold transition-colors">
+                <span className="text-sm md:text-xl font-medium">BUKA UNDANGAN</span>
+              </span>
+              
+              {/* Button Corner Borders - Adjusted for smaller button */}
+              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-gold/80" />
+              <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-gold/80" />
+              <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-gold/80" />
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-gold/80" />
+            </Button>
+          </div>
         </div>
       </div>
     </div>
