@@ -57,13 +57,11 @@ export const OpeningScreen = ({ onOpen, onStartOpening, guestName }: OpeningScre
 
       {/* Content Container */}
       <div 
-        className={`relative z-20 w-full h-full flex flex-col items-center justify-between py-12 md:py-20 transition-all duration-[2000ms] ease-in ${
+        className={`relative z-20 w-full h-full flex flex-col items-center justify-between py-24 md:py-20 transition-all duration-[2000ms] ease-in ${
           isOpening ? "opacity-0 scale-[1.5] translate-y-[20px] blur-sm" : "opacity-100 scale-100 translate-y-0 blur-0"
         }`}
       >
         
-
-      
         {/* CINEMATIC ANIMATED FRAME (Carved Wood Style) */}
         <div className="absolute inset-4 md:inset-8 pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -93,8 +91,8 @@ export const OpeningScreen = ({ onOpen, onStartOpening, guestName }: OpeningScre
         </div>
         
         {/* Top Section: The Wedding Of (Elegant Fade) */}
-        <div className="relative z-20 text-center animate-zoom-fade">
-          <p className="text-sm md:text-base font-cinzel uppercase tracking-[0.3em] mb-2 drop-shadow-md text-gold/90">
+        <div className="relative z-20 text-center animate-zoom-fade mt-4 md:mt-0 px-8">
+          <p className="text-xs md:text-base font-cinzel uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 drop-shadow-md text-gold/90 leading-relaxed">
             The Wedding Celebration Of
           </p>
           <div className="w-12 h-[1px] bg-gold mx-auto" />
@@ -102,34 +100,34 @@ export const OpeningScreen = ({ onOpen, onStartOpening, guestName }: OpeningScre
         
         {/* Middle Section: Names (Classic Elegant) */}
         <div className="relative z-20 text-center px-4 w-full">
-          <div className="font-great-vibes text-6xl sm:text-7xl md:text-9xl mb-4 p-4 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] transition-all duration-[2000ms] text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold animate-shimmer" style={{ clipPath: mounted ? 'inset(-20% -20% -20% -20%)' : 'inset(100% 0 0 0)' }}>
+          <div className="font-great-vibes text-5xl sm:text-7xl md:text-9xl mb-2 md:mb-4 p-2 md:p-4 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] transition-all duration-[2000ms] text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold animate-shimmer" style={{ clipPath: mounted ? 'inset(-20% -20% -20% -20%)' : 'inset(100% 0 0 0)' }}>
             {weddingConfig.bride.name}
           </div>
           
-          <div className="flex items-center justify-center gap-6 my-2 opacity-90">
-            <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
-            <Heart className="text-gold fill-gold w-6 h-6 animate-pulse-glow" />
-            <div className="h-[1px] w-12 md:w-24 bg-gradient-to-l from-transparent via-gold to-transparent" />
+          <div className="flex items-center justify-center gap-4 md:gap-6 my-1 md:my-2 opacity-90">
+            <div className="h-[1px] w-8 md:w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
+            <Heart className="text-gold fill-gold w-4 h-4 md:w-6 md:h-6 animate-pulse-glow" />
+            <div className="h-[1px] w-8 md:w-24 bg-gradient-to-l from-transparent via-gold to-transparent" />
           </div>
           
-          <div className="font-great-vibes text-6xl sm:text-7xl md:text-9xl mb-4 p-4 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] transition-all duration-[2000ms] delay-500 text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold animate-shimmer" style={{ clipPath: mounted ? 'inset(-20% -20% -20% -20%)' : 'inset(100% 0 0 0)' }}>
+          <div className="font-great-vibes text-5xl sm:text-7xl md:text-9xl mb-2 md:mb-4 p-2 md:p-4 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] transition-all duration-[2000ms] delay-500 text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold animate-shimmer" style={{ clipPath: mounted ? 'inset(-20% -20% -20% -20%)' : 'inset(100% 0 0 0)' }}>
              {weddingConfig.groom.name}
           </div>
         </div>
 
         {/* Bottom Section: Info & Button */}
-        <div className="relative z-20 text-center w-full max-w-md mx-auto px-6">
+        <div className="relative z-20 text-center w-full max-w-md mx-auto px-6 mb-4 md:mb-0">
            {/* Date Display */}
-           <div className="flex items-center justify-center gap-4 mb-8 text-white/90 font-serif tracking-widest border-y border-gold/30 py-2">
-             <span>{weddingConfig.resepsi.date.split(',')[1]}</span>
+           <div className="flex items-center justify-center gap-4 mb-6 md:mb-8 text-white/90 font-serif tracking-widest border-y border-gold/30 py-2 mx-8 md:mx-0">
+             <span className="text-sm md:text-base">{weddingConfig.resepsi.date.split(',')[1] || weddingConfig.resepsi.date}</span>
            </div>
 
           {/* Guest name */}
           {guestName && (
-            <div className="mb-8 relative group">
+            <div className="mb-6 md:mb-8 relative group">
                <div className="absolute -inset-4 bg-gradient-to-r from-transparent via-gold/10 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-               <p className="text-xs text-gold/80 mb-2 uppercase tracking-widest">Dear Special Guest</p>
-               <h3 className="font-serif text-3xl font-medium text-white drop-shadow-md">
+               <p className="text-[10px] md:text-xs text-gold/80 mb-2 uppercase tracking-widest">Dear Special Guest</p>
+               <h3 className="font-serif text-2xl md:text-3xl font-medium text-white drop-shadow-md px-2">
                  {guestName}
                </h3>
             </div>
@@ -138,14 +136,14 @@ export const OpeningScreen = ({ onOpen, onStartOpening, guestName }: OpeningScre
           {/* Open button */}
           <Button
             onClick={handleOpen}
-            className="group relative w-full md:w-auto px-16 py-8 text-lg rounded-sm overflow-hidden transition-all duration-500 hover:scale-105 border border-gold/30 bg-black/20 hover:bg-black/40 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.1)]"
+            className="group relative w-full md:w-auto px-12 md:px-16 py-6 md:py-8 text-lg rounded-sm overflow-hidden transition-all duration-500 hover:scale-105 border border-gold/30 bg-black/20 hover:bg-black/40 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.1)] mb-2 md:mb-0"
             variant="ghost"
           >
             {/* Button Shine Effect */}
             <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-x-12 group-hover:animate-shine" />
             
             <span className="relative z-10 flex flex-col items-center text-white font-serif tracking-[0.15em]">
-              <span className="text-xl">BUKA UNDANGAN</span>
+              <span className="text-lg md:text-xl">BUKA UNDANGAN</span>
             </span>
             
             {/* Button Corner Borders */}
