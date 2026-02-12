@@ -54,7 +54,7 @@ const Index = () => {
   }, [isOpened]);
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
       {/* Custom Luxury Cursor */}
       <GoldCursor />
 
