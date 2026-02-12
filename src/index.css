@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Great+Vibes&family=Cinzel+Decorative:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Wedding Invitation Theme - Mahogany & Gold Exclusive */
+
+@layer base {
+  :root {
+    /* Luxury Dark Mahogany Theme (Global) */
+    --background: 356 50% 8%; /* Deep Dark Mahogany */
+    --foreground: 40 30% 90%; /* Cream/Gold Text */
+
+    --card: 356 45% 12%;
+    --card-foreground: 40 30% 90%;
+
+    --popover: 356 45% 12%;
+    --popover-foreground: 40 30% 90%;
+
+    /* Gold as Primary for contrast against Dark Background */
+    --primary: 42 60% 55%; /* Rich Gold */
+    --primary-foreground: 356 50% 10%; /* Dark text on gold */
+
+    /* Mahogany as Secondary */
+    --secondary: 356 40% 18%; /* Lighter Mahogany */
+    --secondary-foreground: 40 30% 90%;
+
+    --muted: 356 30% 15%;
+    --muted-foreground: 40 20% 70%;
+
+    --accent: 42 50% 55%;
+    --accent-foreground: 356 50% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 42 30% 30%; /* Subtle Gold Border */
+    --input: 356 30% 20%;
+    --ring: 42 60% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom Wedding Colors */
+    --gold: 42 60% 55%;
+    --mahogany: 356 50% 15%;
+    --mahogany-light: 356 40% 25%;
+    
+    --sidebar-background: 356 50% 8%;
+    --sidebar-foreground: 40 30% 90%;
+    --sidebar-primary: 42 60% 55%;
+    --sidebar-primary-foreground: 356 50% 10%;
+    --sidebar-accent: 356 30% 15%;
+    --sidebar-accent-foreground: 40 30% 90%;
+    --sidebar-border: 356 30% 20%;
+    --sidebar-ring: 42 60% 55%;
+  }
+
+  .dark {
+    /* Same as root since we want dark theme everywhere */
+    --background: 356 50% 8%;
+    --foreground: 40 30% 90%;
+    
+    --card: 356 45% 12%;
+    --card-foreground: 40 30% 90%;
+
+    --popover: 356 45% 12%;
+    --popover-foreground: 40 30% 90%;
+
+    --primary: 42 60% 55%;
+    --primary-foreground: 356 50% 10%;
+
+    --secondary: 356 40% 18%;
+    --secondary-foreground: 40 30% 90%;
+
+    --muted: 356 30% 15%;
+    --muted-foreground: 40 20% 70%;
+
+    --accent: 42 50% 55%;
+    --accent-foreground: 356 50% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 42 30% 30%;
+    --input: 356 30% 20%;
+    --ring: 42 60% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Luxury Utilities */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-gold to-primary;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card {
+  @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-xl;
+}
+
+/* Enhanced Animations */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    to right,
+    #D4AF37 20%,
+    #FFF 40%,
+    #FFF 60%,
+    #D4AF37 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); transform: scale(1); }
+  50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8); transform: scale(1.02); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite;
+}
+
+@keyframes draw-line {
+  0% { stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+  100% { stroke-dasharray: 1000; stroke-dashoffset: 0; }
+}
+
+.animate-draw {
+  animation: draw-line 4s ease-out forwards;
+}
+
+@keyframes zoom-fade-in {
+  0% { opacity: 0; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-zoom-fade {
+  animation: zoom-fade-in 1.5s ease-out forwards;
+}
