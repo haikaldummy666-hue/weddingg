@@ -105,14 +105,14 @@ export const weddingConfig = {
       accountName: "Haikal Muhammad Kurniawan",
     },
     {
-      bank: "Bank Jago",
-      accountNumber: "100160107843",
-      accountName: "Haikal Muhammad Kurniawan",
+      bank: "Bank BRI",
+      accountNumber: "408901037567530",
+      accountName: "Sastra Wijaya",
     },
     {
       bank: "Seabank",
-      accountNumber: "901565136605",
-      accountName: "Haikal Muhammad Kurniawan",
+      accountNumber: "901013967060",
+      accountName: "Sastra Wijaya",
     },
   ],
 
