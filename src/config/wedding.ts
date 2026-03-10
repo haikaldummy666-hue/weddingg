@@ -100,8 +100,8 @@ export const weddingConfig = {
       accountName: "Haikal Muhammad Kurniawan",
     },
     {
-      bank: "Dana",
-      accountNumber: "083808283542",
+      bank: "Seabank",
+      accountNumber: "901565136605",
       accountName: "Haikal Muhammad Kurniawan",
     },
     {
