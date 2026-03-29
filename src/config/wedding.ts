@@ -12,7 +12,7 @@
 
 export const weddingConfig = {
   // Background Image for Opening Screen
-  welcomeBackground: "/assets/images/weding.jpeg",
+  welcomeBackground: "/assets/images/weding.jpg",
 
   // Couple Information
   bride: {
@@ -20,14 +20,14 @@ export const weddingConfig = {
     fullName: "Novi Ramadaniawati",
     father: "Bapak Sastra Wijaya",
     mother: "Ibu Ai Santi",
-    photo: "/assets/images/novi.jpeg",
+    photo: "/assets/images/novi.jpg",
   },
   groom: {
     name: "Haikal",
     fullName: "Haikal Muhammad Kurniawan",
     father: "Bapak Jimmi Kurniawan, S.Pd.I., M.Pd",
     mother: "Ibu Yanti Nuryanti, S.Pd.I",
-    photo: "/assets/images/haikal.jpeg",
+    photo: "/assets/images/haikal.jpg",
   },
 
   // Wedding Date
