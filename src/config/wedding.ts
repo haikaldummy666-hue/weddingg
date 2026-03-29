@@ -79,14 +79,14 @@ export const weddingConfig = {
 
   // Gallery Photos
   gallery: [
-    "/assets/images/g1.jpeg",
-    "/assets/images/g2.jpeg",
-    "/assets/images/g3.jpeg",
-    "/assets/images/g4.jpeg",
-    "/assets/images/g5.jpeg",
-    "/assets/images/g6.jpeg",
-    "/assets/images/g1.jpeg", // Added extra slot for grid balance
-    "/assets/images/g2.jpeg", // Added 8th slot to fully fill the gap
+    "/assets/images/g1.jpg",
+    "/assets/images/g2.jpg",
+    "/assets/images/g3.jpg",
+    "/assets/images/g4.jpg",
+    "/assets/images/g5.jpg",
+    "/assets/images/g6.jpg",
+    "/assets/images/g7.jpg", 
+    "/assets/images/g8.jpg", 
   ],
 
   // Couple Main Photo
@@ -106,13 +106,13 @@ export const weddingConfig = {
     },
     {
       bank: "Bank BRI",
-      accountNumber: "408901037567530",
-      accountName: "Sastra Wijaya",
+      accountNumber: "0000000000",
+      accountName: "Jimmi Kurniawan",
     },
     {
       bank: "Seabank",
-      accountNumber: "901013967060",
-      accountName: "Sastra Wijaya",
+      accountNumber: "00000000000",
+      accountName: "Yanti Nuryanti",
     },
   ],
 
