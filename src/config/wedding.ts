@@ -71,8 +71,14 @@ export const weddingConfig = {
     },
     {
       title: "Menuju Pelaminan",
-      date: "April 2026",
+      date: "Maret 2026",
       description: "Hari bahagia yang kami nantikan, menyatukan cinta dalam ikatan suci pernikahan.",
+      photo: "/placeholder.svg",
+    },
+    {
+      title: "Syukuran",
+      date: "April 2026",
+      description: "Syukuran sebagai ungkapan rasa syukur atas kelancaran dan keberkahan dalam perjalanan kami.",
       photo: "/placeholder.svg",
     },
   ],
