@@ -9,8 +9,15 @@ interface QuantumPortalProps {
   isOpening?: boolean;
 }
 
+type DimensionTheme = {
+  primary: string;
+  secondary: string;
+  ambient: string;
+  fog: string;
+};
+
 // Helper to get dimension colors
-const getDimensionTheme = (dim: string) => {
+const getDimensionTheme = (dim: string): DimensionTheme => {
   switch (dim) {
     case 'futuristic-jakarta': return { primary: '#00f2ff', secondary: '#ff00aa', ambient: '#111122', fog: '#050510' };
     case 'ancient-forest': return { primary: '#44ff44', secondary: '#ffaa00', ambient: '#051005', fog: '#020502' };
@@ -20,7 +27,7 @@ const getDimensionTheme = (dim: string) => {
   }
 };
 
-const PortalFrame = ({ theme, isOpening }: { theme: any, isOpening?: boolean }) => {
+const PortalFrame = ({ theme, isOpening }: { theme: DimensionTheme, isOpening?: boolean }) => {
   const meshRef = useRef<THREE.Group>(null);
   
   useFrame((state) => {
@@ -76,7 +83,7 @@ const PortalFrame = ({ theme, isOpening }: { theme: any, isOpening?: boolean }) 
   );
 };
 
-const FloatingShards = ({ theme, count = 30 }: { theme: any, count?: number }) => {
+const FloatingShards = ({ theme, count = 30 }: { theme: DimensionTheme, count?: number }) => {
     const shards = useMemo(() => {
         return new Array(count).fill(0).map(() => ({
             position: [

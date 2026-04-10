@@ -35,11 +35,12 @@ export const CoupleProfile = () => {
                      
                      {/* Image Container */}
                      <div className="relative aspect-[3/4] overflow-hidden rounded-sm shadow-2xl">
-                        <div className="absolute inset-0 bg-gold/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
                         <img 
                           src={weddingConfig.bride.photo} 
                           alt={weddingConfig.bride.name}
-                          className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 filter sepia-[0.2]"
+                          loading="eager"
+                          decoding="async"
+                          className="w-full h-full object-cover"
                         />
                      </div>
 
@@ -80,11 +81,12 @@ export const CoupleProfile = () => {
                      
                      {/* Image Container */}
                      <div className="relative aspect-[3/4] overflow-hidden rounded-sm shadow-2xl">
-                        <div className="absolute inset-0 bg-gold/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
                         <img 
                           src={weddingConfig.groom.photo} 
                           alt={weddingConfig.groom.name}
-                          className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 filter sepia-[0.2]"
+                          loading="eager"
+                          decoding="async"
+                          className="w-full h-full object-cover"
                         />
                      </div>
 
