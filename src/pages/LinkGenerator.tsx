@@ -36,7 +36,7 @@ Merupakan kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir dan m
 جَزَاكُمُ اللهُ خَيْرًا كَثِيْرًا
  
 وَالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ
-${weddingConfig.groom.name} & ${weddingConfig.bride.name}`;
+${weddingConfig.bride.name} & ${weddingConfig.groom.name}`;
   };
 
   const handleGenerate = () => {
