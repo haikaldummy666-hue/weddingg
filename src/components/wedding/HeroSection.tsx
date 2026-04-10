@@ -6,7 +6,7 @@ export const HeroSection = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center py-12 md:py-20 px-4 overflow-hidden">
       {/* Parallax Background */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20 blur-sm scale-110"
+        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40"
         style={{ backgroundImage: `url('${weddingConfig.couplePhoto}')` }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
@@ -32,22 +32,22 @@ export const HeroSection = () => {
            <div className="absolute -inset-4 bg-gold/30 blur-2xl rounded-lg opacity-0 group-hover:opacity-60 transition-opacity duration-1000" />
            
            {/* Floating Container */}
-           <div className="relative w-64 h-[24rem] md:w-80 md:h-[32rem] animate-float-slow transform-style-3d transition-transform duration-700 group-hover:rotate-y-6">
+           <div className="relative w-64 h-[24rem] md:w-80 md:h-[32rem] animate-float-slow">
               
               {/* Gold Border Frame (Behind) */}
               <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-full h-full border-2 border-gold/40 rounded-sm z-0" />
               <div className="absolute -bottom-3 -left-3 md:-bottom-4 md:-left-4 w-full h-full border-2 border-gold/40 rounded-sm z-0" />
 
               {/* Main Image Card */}
-              <div className="absolute inset-0 bg-black/20 backdrop-blur-sm p-2 border border-gold/50 shadow-2xl z-10">
+              <div className="absolute inset-0 bg-background/60 p-2 border border-gold/50 shadow-2xl z-10">
                  <div className="relative w-full h-full overflow-hidden border border-gold/20">
                     <img
                       src={weddingConfig.couplePhoto}
                       alt="The Couple"
-                      className="w-full h-full object-cover transition-transform duration-[3000ms] ease-out group-hover:scale-110"
+                      loading="eager"
+                      decoding="async"
+                      className="w-full h-full object-cover"
                     />
-                    {/* Inner Vignette */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
                     
                     {/* Watermark / Logo */}
                     <div className="absolute bottom-4 left-0 right-0 text-center">
