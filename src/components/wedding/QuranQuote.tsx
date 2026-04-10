@@ -29,6 +29,9 @@ export const QuranQuote = () => {
         </div>
 
         {/* Arabic text */}
+        <p className="font-serif text-lg md:text-xl text-foreground/90 leading-relaxed mb-4 direction-rtl">
+          بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+        </p>
         <p className="font-serif text-xl md:text-2xl text-foreground/90 leading-relaxed mb-6 direction-rtl">
           {weddingConfig.quranQuote.arabic}
         </p>
