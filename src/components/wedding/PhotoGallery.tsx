@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { weddingConfig } from "@/config/wedding";
 import { useInView } from "@/hooks/useInView";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
@@ -8,18 +8,107 @@ export const PhotoGallery = () => {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [lightboxImageError, setLightboxImageError] = useState(false);
+
+  const selectedPhoto = useMemo(() => {
+    if (selectedIndex === null) return null;
+    return weddingConfig.gallery[selectedIndex] ?? null;
+  }, [selectedIndex]);
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    if (typeof window === "undefined") return;
+    if (typeof document === "undefined") return;
+
+    const body = document.body;
+    const previousOverflow = body.style.overflow;
+    const previousPosition = body.style.position;
+    const previousTop = body.style.top;
+    const previousWidth = body.style.width;
+    const scrollY = window.scrollY;
+
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+
+    return () => {
+      body.style.overflow = previousOverflow;
+      body.style.position = previousPosition;
+      body.style.top = previousTop;
+      body.style.width = previousWidth;
+
+      const topValue = Number.parseInt(previousTop || "0", 10);
+      const restoredScrollY = Number.isFinite(topValue) ? -topValue : scrollY;
+      window.scrollTo(0, restoredScrollY);
+    };
+  }, [selectedIndex]);
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    if (selectedPhoto === null) {
+      setSelectedIndex(null);
+      return;
+    }
+
+    if (typeof window === "undefined") return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedIndex(null);
+        return;
+      }
+      if (e.key === "ArrowLeft") {
+        setSelectedIndex((current) => {
+          if (current === null) return current;
+          return current === 0 ? weddingConfig.gallery.length - 1 : current - 1;
+        });
+      }
+      if (e.key === "ArrowRight") {
+        setSelectedIndex((current) => {
+          if (current === null) return current;
+          return current === weddingConfig.gallery.length - 1 ? 0 : current + 1;
+        });
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedIndex, selectedPhoto]);
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const current = weddingConfig.gallery[selectedIndex];
+    if (!current) return;
+
+    const nextIndex =
+      selectedIndex === weddingConfig.gallery.length - 1 ? 0 : selectedIndex + 1;
+    const prevIndex =
+      selectedIndex === 0 ? weddingConfig.gallery.length - 1 : selectedIndex - 1;
+
+    const preload = (src: string | undefined) => {
+      if (!src) return;
+      const img = new Image();
+      img.decoding = "async";
+      img.src = src;
+    };
+
+    preload(current);
+    preload(weddingConfig.gallery[nextIndex]);
+    preload(weddingConfig.gallery[prevIndex]);
+  }, [selectedIndex]);
 
   const openLightbox = (index: number) => {
     setSelectedIndex(index);
-    document.body.style.overflow = "hidden";
+    setLightboxImageError(false);
   };
 
   const closeLightbox = () => {
     setSelectedIndex(null);
-    document.body.style.overflow = "auto";
+    setLightboxImageError(false);
   };
 
-  const goToPrevious = (e: React.MouseEvent) => {
+  const goToPrevious = (e: MouseEvent) => {
     e.stopPropagation();
     if (selectedIndex !== null) {
       setSelectedIndex(
@@ -28,7 +117,7 @@ export const PhotoGallery = () => {
     }
   };
 
-  const goToNext = (e: React.MouseEvent) => {
+  const goToNext = (e: MouseEvent) => {
     e.stopPropagation();
     if (selectedIndex !== null) {
       setSelectedIndex(
@@ -85,18 +174,20 @@ export const PhotoGallery = () => {
                 <img
                   src={photo}
                   alt={`Gallery ${index + 1}`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter grayscale-[0.2] group-hover:grayscale-0"
                 />
                 
                 {/* Hover Content */}
                 <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
-                  <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/50 flex items-center justify-center text-white">
+                  <div className="w-16 h-16 rounded-full bg-background/60 backdrop-blur-md border border-border/60 flex items-center justify-center text-foreground">
                     <ZoomIn className="w-6 h-6" />
                   </div>
                 </div>
                 
                 {/* Border effect */}
-                <div className="absolute inset-4 border border-white/30 scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 z-10 pointer-events-none" />
+                <div className="absolute inset-4 border border-border/60 scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 z-10 pointer-events-none" />
               </div>
             );
           })}
@@ -104,16 +195,21 @@ export const PhotoGallery = () => {
       </div>
 
       {/* Lightbox Overlay */}
-      {selectedIndex !== null && (
+      {selectedIndex !== null && selectedPhoto !== null && (
         <div
-          className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl flex items-center justify-center p-4 animate-fade-in"
+          className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-none md:backdrop-blur-xl flex items-center justify-center p-4 animate-fade-in overscroll-contain"
           onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
         >
           <Button
             variant="ghost"
             size="icon"
             className="absolute top-4 right-4 text-primary hover:bg-primary/10 z-50 rounded-full w-12 h-12"
-            onClick={closeLightbox}
+            onClick={(e) => {
+              e.stopPropagation();
+              closeLightbox();
+            }}
           >
             <X className="w-6 h-6" />
           </Button>
@@ -137,11 +233,50 @@ export const PhotoGallery = () => {
           </Button>
 
           <div className="relative max-w-5xl w-full max-h-[85vh] aspect-[3/4] md:aspect-[16/9] shadow-2xl overflow-hidden rounded-sm" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={weddingConfig.gallery[selectedIndex]}
-              alt="Gallery Preview"
-              className="w-full h-full object-contain bg-black/5"
-            />
+            {lightboxImageError ? (
+              <div className="w-full h-full bg-background flex items-center justify-center px-6 text-center">
+                <div className="space-y-4">
+                  <div className="font-serif text-xl text-foreground">Gagal memuat foto</div>
+                  <div className="text-sm text-muted-foreground">
+                    Coba ulangi, atau buka foto berikutnya.
+                  </div>
+                  <div className="flex items-center justify-center gap-3">
+                    <Button
+                      variant="outline"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setLightboxImageError(false);
+                      }}
+                    >
+                      Coba lagi
+                    </Button>
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setLightboxImageError(false);
+                        setSelectedIndex((current) => {
+                          if (current === null) return current;
+                          return current === weddingConfig.gallery.length - 1
+                            ? 0
+                            : current + 1;
+                        });
+                      }}
+                    >
+                      Foto berikutnya
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <img
+                src={selectedPhoto}
+                alt="Gallery Preview"
+                loading="eager"
+                decoding="async"
+                onError={() => setLightboxImageError(true)}
+                className="w-full h-full object-contain bg-background"
+              />
+            )}
           </div>
           
           <div className="absolute bottom-8 left-0 right-0 text-center text-primary font-sans text-sm tracking-widest">

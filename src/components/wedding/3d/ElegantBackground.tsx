@@ -87,16 +87,25 @@ const LightBeams = () => {
 
 interface ElegantBackgroundProps {
   isOpening?: boolean;
-  theme?: 'gold' | 'mahogany' | 'midnight';
+  theme?: "cream" | "gold" | "mahogany" | "midnight";
 }
 
 const Scene = ({ isOpening, theme = 'gold' }: ElegantBackgroundProps) => {
     // Elegant, muted colors. No flashy gold.
     const bokehColor = useMemo(() => {
         switch (theme) {
+            case "cream": return "#E7CDA7"; // Warm cream / beige
             case 'mahogany': return '#D2B48C'; // Tan/Soft Brown
             case 'midnight': return '#B0C4DE'; // Light Steel Blue (Soft Silver)
             default: return '#F5DEB3'; // Wheat/Soft Champagne
+        }
+    }, [theme]);
+
+    const backgroundColor = useMemo(() => {
+        switch (theme) {
+            case "cream": return "#F5E9D6";
+            case "midnight": return "#080B12";
+            default: return "#120505";
         }
     }, [theme]);
 
@@ -108,10 +117,8 @@ const Scene = ({ isOpening, theme = 'gold' }: ElegantBackgroundProps) => {
 
     return (
         <>
-            {/* Deep, Expensive Background Color */}
-            {/* Very Dark Mahogany: #1a0b0b to Black fade */}
-            <color attach="background" args={['#120505']} /> 
-            <fog attach="fog" args={['#120505', 5, 25]} />
+            <color attach="background" args={[backgroundColor]} /> 
+            <fog attach="fog" args={[backgroundColor, 5, 25]} />
 
             {/* Soft, Cinematic Lighting */}
             <ambientLight intensity={0.4} />

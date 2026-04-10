@@ -36,15 +36,15 @@ const TimelineItem = ({ item, index, isLast }: TimelineItemProps) => {
       >
         <div className="relative inline-block">
             {/* Date Tag */}
-            <div className={`inline-block px-4 py-1 border border-gold/30 bg-black/40 backdrop-blur-md rounded-full mb-4 ${isEven ? "md:ml-auto" : "md:mr-auto"}`}>
-                <span className="text-xs font-sans tracking-[0.2em] text-gold">{item.date}</span>
+            <div className={`inline-block px-4 py-1 border border-gold/30 bg-cream/70 backdrop-blur-md rounded-full mb-4 ${isEven ? "md:ml-auto" : "md:mr-auto"}`}>
+                <span className="text-xs font-sans tracking-[0.2em] text-primary">{item.date}</span>
             </div>
             
-            <h3 className="font-script text-4xl md:text-5xl text-white mb-4 drop-shadow-md">
+            <h3 className="font-script text-4xl md:text-5xl text-foreground mb-4 drop-shadow-md">
                 {item.title}
             </h3>
             
-            <p className="font-serif text-white/70 leading-relaxed text-sm md:text-base border-t border-gold/20 pt-4">
+            <p className="font-serif text-muted-foreground leading-relaxed text-sm md:text-base border-t border-gold/20 pt-4">
                 {item.description}
             </p>
 
@@ -56,7 +56,7 @@ const TimelineItem = ({ item, index, isLast }: TimelineItemProps) => {
       {/* Center Marker (Desktop) / Left Marker (Mobile) */}
       <div className="absolute left-4 md:left-1/2 -translate-x-1/2 flex flex-col items-center justify-center">
          {/* The Glowing Node */}
-         <div className={`w-4 h-4 rounded-full bg-gold border-4 border-black shadow-[0_0_20px_#D4AF37] z-20 transition-all duration-700 delay-500 ${isInView ? "scale-100 opacity-100" : "scale-0 opacity-0"}`} />
+         <div className={`w-4 h-4 rounded-full bg-gold border-4 border-background shadow-[0_0_20px_#D4AF37] z-20 transition-all duration-700 delay-500 ${isInView ? "scale-100 opacity-100" : "scale-0 opacity-0"}`} />
          
          {/* Pulse Effect */}
          <div className={`absolute w-12 h-12 rounded-full border border-gold/30 animate-ping opacity-50 ${isInView ? "block" : "hidden"}`} />
@@ -75,7 +75,7 @@ export const LoveStory = () => {
   return (
     <section ref={ref} className="py-32 md:py-48 px-4 relative overflow-hidden bg-background">
       {/* Cinematic Background */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-linen.png')] opacity-20 mix-blend-overlay" />
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-linen.png')] opacity-10 mix-blend-overlay" />
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-background to-transparent z-10" />
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10" />
 
@@ -95,7 +95,7 @@ export const LoveStory = () => {
           <h2 className="font-script text-5xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold animate-shimmer mb-6">
             Our Journey
           </h2>
-          <p className="font-serif text-white/60 tracking-widest uppercase text-xs md:text-sm max-w-md mx-auto">
+          <p className="font-serif text-muted-foreground tracking-widest uppercase text-xs md:text-sm max-w-md mx-auto">
             Every step that brought us here
           </p>
         </div>

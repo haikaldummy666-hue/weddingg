@@ -16,7 +16,7 @@ export const CoupleProfile = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-24 relative">
           <p className="text-xs md:text-sm font-sans uppercase tracking-[0.5em] text-gold mb-4">Groom & Bride</p>
-          <h2 className="font-serif text-3xl md:text-6xl text-white">The Happy Couple</h2>
+          <h2 className="font-serif text-3xl md:text-6xl text-foreground">The Happy Couple</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-6" />
         </div>
 
@@ -53,12 +53,12 @@ export const CoupleProfile = () => {
               {/* Text Info Area */}
               <div className="w-full md:w-1/2 text-center md:text-left md:pl-8">
                  <div className="inline-block border-b border-gold/50 pb-2 mb-4">
-                    <span className="font-sans text-[10px] md:text-xs tracking-[0.4em] text-white/60">THE BRIDE</span>
+                    <span className="font-sans text-[10px] md:text-xs tracking-[0.4em] text-foreground/60">THE BRIDE</span>
                  </div>
-                 <h3 className="font-serif text-2xl md:text-4xl text-white mb-4 leading-tight">
+                 <h3 className="font-serif text-2xl md:text-4xl text-foreground mb-4 leading-tight">
                     {weddingConfig.bride.fullName}
                  </h3>
-                 <p className="font-sans text-white/70 leading-relaxed mb-6 font-light text-sm md:text-base">
+                 <p className="font-sans text-muted-foreground leading-relaxed mb-6 font-light text-sm md:text-base">
                     Putri dari Pasangan <br />
                     <span className="text-gold font-serif text-lg">{weddingConfig.bride.father}</span> <br />
                     & <br />
@@ -98,12 +98,12 @@ export const CoupleProfile = () => {
               {/* Text Info Area */}
               <div className="w-full md:w-1/2 text-center md:text-right md:pr-8">
                  <div className="inline-block border-b border-gold/50 pb-2 mb-4">
-                    <span className="font-sans text-xs tracking-[0.4em] text-white/60">THE GROOM</span>
+                    <span className="font-sans text-xs tracking-[0.4em] text-foreground/60">THE GROOM</span>
                  </div>
-                 <h3 className="font-serif text-2xl md:text-4xl text-white mb-4 leading-tight">
+                 <h3 className="font-serif text-2xl md:text-4xl text-foreground mb-4 leading-tight">
                     {weddingConfig.groom.fullName}
                  </h3>
-                 <p className="font-sans text-white/70 leading-relaxed mb-6 font-light text-sm md:text-base">
+                 <p className="font-sans text-muted-foreground leading-relaxed mb-6 font-light text-sm md:text-base">
                     Putra dari Pasangan <br />
                     <span className="text-gold font-serif text-lg">{weddingConfig.groom.father}</span> <br />
                     & <br />

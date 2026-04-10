@@ -4,77 +4,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Wedding Invitation Theme - Mahogany & Gold Exclusive */
+/* Wedding Invitation Theme - Cream, Rose Gold & Maroon */
 
 @layer base {
   :root {
-    /* Luxury Dark Mahogany Theme (Global) */
-    --background: 356 50% 8%; /* Deep Dark Mahogany */
-    --foreground: 40 30% 90%; /* Cream/Gold Text */
+    /* Cream Theme (Default) */
+    --background: 36 56% 92%; /* Cream */
+    --foreground: 356 45% 14%; /* Deep Maroon */
 
-    --card: 356 45% 12%;
-    --card-foreground: 40 30% 90%;
+    --card: 36 45% 96%;
+    --card-foreground: 356 45% 14%;
 
-    --popover: 356 45% 12%;
-    --popover-foreground: 40 30% 90%;
+    --popover: 36 45% 96%;
+    --popover-foreground: 356 45% 14%;
 
-    /* Gold as Primary for contrast against Dark Background */
-    --primary: 42 60% 55%; /* Rich Gold */
-    --primary-foreground: 356 50% 10%; /* Dark text on gold */
+    /* Maroon as Primary */
+    --primary: 356 55% 24%;
+    --primary-foreground: 36 56% 94%;
 
-    /* Mahogany as Secondary */
-    --secondary: 356 40% 18%; /* Lighter Mahogany */
-    --secondary-foreground: 40 30% 90%;
+    /* Gold as Secondary Accent */
+    --secondary: 42 60% 52%;
+    --secondary-foreground: 356 55% 18%;
 
-    --muted: 356 30% 15%;
-    --muted-foreground: 40 20% 70%;
+    --muted: 36 24% 88%;
+    --muted-foreground: 356 18% 32%;
 
-    --accent: 42 50% 55%;
-    --accent-foreground: 356 50% 10%;
+    --accent: 24 46% 78%; /* Rose Gold Light */
+    --accent-foreground: 356 55% 18%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 42 30% 30%; /* Subtle Gold Border */
-    --input: 356 30% 20%;
-    --ring: 42 60% 55%;
+    --border: 24 26% 78%;
+    --input: 24 26% 78%;
+    --ring: 42 60% 52%;
 
     --radius: 0.5rem;
 
     /* Custom Wedding Colors */
-    --gold: 42 60% 55%;
-    --mahogany: 356 50% 15%;
-    --mahogany-light: 356 40% 25%;
+    --cream: 36 56% 92%;
+    --maroon: 356 55% 24%;
+    --gold: 42 60% 52%;
+    --rose-gold: 18 45% 68%;
+    --rose-gold-light: 24 46% 78%;
+    --soft-pink: 345 55% 92%;
+    --soft-pink-dark: 345 30% 78%;
     
-    --sidebar-background: 356 50% 8%;
-    --sidebar-foreground: 40 30% 90%;
-    --sidebar-primary: 42 60% 55%;
-    --sidebar-primary-foreground: 356 50% 10%;
-    --sidebar-accent: 356 30% 15%;
-    --sidebar-accent-foreground: 40 30% 90%;
-    --sidebar-border: 356 30% 20%;
-    --sidebar-ring: 42 60% 55%;
+    --sidebar-background: 36 56% 92%;
+    --sidebar-foreground: 356 45% 14%;
+    --sidebar-primary: 356 55% 24%;
+    --sidebar-primary-foreground: 36 56% 94%;
+    --sidebar-accent: 36 24% 88%;
+    --sidebar-accent-foreground: 356 45% 14%;
+    --sidebar-border: 24 26% 78%;
+    --sidebar-ring: 42 60% 52%;
   }
 
   .dark {
-    /* Same as root since we want dark theme everywhere */
+    /* Optional Dark Variant (Mahogany & Gold) */
     --background: 356 50% 8%;
-    --foreground: 40 30% 90%;
+    --foreground: 36 56% 92%;
     
     --card: 356 45% 12%;
-    --card-foreground: 40 30% 90%;
+    --card-foreground: 36 56% 92%;
 
     --popover: 356 45% 12%;
-    --popover-foreground: 40 30% 90%;
+    --popover-foreground: 36 56% 92%;
 
     --primary: 42 60% 55%;
     --primary-foreground: 356 50% 10%;
 
     --secondary: 356 40% 18%;
-    --secondary-foreground: 40 30% 90%;
+    --secondary-foreground: 36 56% 92%;
 
     --muted: 356 30% 15%;
-    --muted-foreground: 40 20% 70%;
+    --muted-foreground: 36 24% 80%;
 
     --accent: 42 50% 55%;
     --accent-foreground: 356 50% 10%;
@@ -85,6 +89,14 @@
     --border: 42 30% 30%;
     --input: 356 30% 20%;
     --ring: 42 60% 55%;
+
+    --cream: 36 56% 92%;
+    --maroon: 356 55% 24%;
+    --gold: 42 60% 55%;
+    --rose-gold: 18 45% 68%;
+    --rose-gold-light: 24 46% 78%;
+    --soft-pink: 345 55% 92%;
+    --soft-pink-dark: 345 30% 78%;
   }
 }
 
@@ -107,7 +119,7 @@
 }
 
 .glass-card {
-  @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-xl;
+  @apply backdrop-blur-md bg-white/60 border border-white/40 shadow-xl;
 }
 
 /* Enhanced Animations */

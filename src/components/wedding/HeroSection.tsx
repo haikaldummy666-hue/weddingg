@@ -77,7 +77,7 @@ export const HeroSection = () => {
            <h1 className="font-script text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold animate-shimmer drop-shadow-lg" style={{ animationDelay: "1s" }}>
             {weddingConfig.groom.name}
           </h1>
-           <p className="font-serif text-lg md:text-2xl tracking-widest text-white/80 border-t border-b border-gold/30 py-2 inline-block">
+           <p className="font-serif text-lg md:text-2xl tracking-widest text-foreground/80 border-t border-b border-gold/30 py-2 inline-block">
             {weddingConfig.resepsi.date}
           </p>
         </div>

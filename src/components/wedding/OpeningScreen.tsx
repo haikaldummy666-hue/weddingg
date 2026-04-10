@@ -31,13 +31,13 @@ export const OpeningScreen = ({ onOpen, onStartOpening, guestName }: OpeningScre
 
   return (
     <div className={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden transition-all duration-1000 ${
-      isOpening ? "bg-transparent pointer-events-none" : "bg-black"
+      isOpening ? "bg-transparent pointer-events-none" : "bg-background"
     }`}>
       
       {/* 3D ELEGANT BACKGROUND */}
       <div className={`absolute inset-0 z-0 transition-opacity duration-1000 ${isOpening ? "opacity-0" : "opacity-100"}`}>
         <Suspense fallback={<div className="w-full h-full bg-background" />}>
-            <ElegantBackground theme="mahogany" isOpening={isOpening} />
+            <ElegantBackground theme="cream" isOpening={isOpening} />
         </Suspense>
       </div>
       
@@ -118,7 +118,7 @@ export const OpeningScreen = ({ onOpen, onStartOpening, guestName }: OpeningScre
         {/* Bottom Section: Info & Button */}
         <div className="relative z-20 text-center w-full max-w-md mx-auto px-6 mb-4 md:mb-0">
            {/* Date Display */}
-           <div className="flex items-center justify-center gap-4 mb-6 md:mb-8 text-white/90 font-serif tracking-widest border-y border-gold/30 py-2 mx-8 md:mx-0">
+           <div className="flex items-center justify-center gap-4 mb-6 md:mb-8 text-foreground/90 font-serif tracking-widest border-y border-gold/30 py-2 mx-8 md:mx-0">
              <span className="text-sm md:text-base">{weddingConfig.resepsi.date.split(',')[1] || weddingConfig.resepsi.date}</span>
            </div>
 
@@ -127,7 +127,7 @@ export const OpeningScreen = ({ onOpen, onStartOpening, guestName }: OpeningScre
             <div className="mb-6 md:mb-8 relative group">
                <div className="absolute -inset-4 bg-gradient-to-r from-transparent via-gold/10 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                <p className="text-[10px] md:text-xs text-gold/80 mb-2 uppercase tracking-widest">Dear Special Guest</p>
-               <h3 className="font-serif text-2xl md:text-3xl font-medium text-white drop-shadow-md px-2">
+               <h3 className="font-serif text-2xl md:text-3xl font-medium text-foreground drop-shadow-md px-2">
                  {guestName}
                </h3>
             </div>
@@ -137,13 +137,13 @@ export const OpeningScreen = ({ onOpen, onStartOpening, guestName }: OpeningScre
           <div className="flex justify-center mb-6 md:mb-0">
             <Button
               onClick={handleOpen}
-              className="group relative w-auto min-w-[200px] px-8 py-6 md:px-16 md:py-8 text-base md:text-lg rounded-sm overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 border border-gold/40 bg-black/30 hover:bg-black/50 backdrop-blur-md shadow-[0_0_25px_rgba(212,175,55,0.15)]"
+              className="group relative w-auto min-w-[200px] px-8 py-6 md:px-16 md:py-8 text-base md:text-lg rounded-sm overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 border border-gold/40 bg-background/60 hover:bg-background/80 backdrop-blur-md shadow-[0_0_25px_rgba(212,175,55,0.15)]"
               variant="ghost"
             >
               {/* Button Shine Effect */}
               <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-x-12 group-hover:animate-shine" />
               
-              <span className="relative z-10 flex flex-col items-center text-white font-serif tracking-[0.2em] group-active:text-gold transition-colors">
+              <span className="relative z-10 flex flex-col items-center text-foreground font-serif tracking-[0.2em] group-active:text-gold transition-colors">
                 <span className="text-sm md:text-xl font-medium">BUKA UNDANGAN</span>
               </span>
               

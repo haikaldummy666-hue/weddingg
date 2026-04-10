@@ -15,7 +15,7 @@ export const ClosingSection = () => {
       <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
       
       {/* Large Watermark */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-script text-[15rem] md:text-[25rem] text-white/5 whitespace-nowrap pointer-events-none blur-sm">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-script text-[15rem] md:text-[25rem] text-primary-foreground/10 whitespace-nowrap pointer-events-none blur-sm">
         Thank You
       </div>
 
@@ -36,18 +36,18 @@ export const ClosingSection = () => {
 
         {/* Names */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 mb-16">
-          <h2 className="font-script text-5xl sm:text-6xl md:text-7xl text-white">
+          <h2 className="font-script text-5xl sm:text-6xl md:text-7xl text-primary-foreground">
             {weddingConfig.bride.name}
           </h2>
           <span className="font-serif text-3xl text-gold italic">&</span>
-          <h2 className="font-script text-5xl sm:text-6xl md:text-7xl text-white">
+          <h2 className="font-script text-5xl sm:text-6xl md:text-7xl text-primary-foreground">
             {weddingConfig.groom.name}
           </h2>
         </div>
 
         {/* Footer */}
-        <div className="border-t border-white/10 pt-12 mt-12">
-          <p className="font-sans text-xs text-white/40 tracking-widest">
+        <div className="border-t border-primary-foreground/10 pt-12 mt-12">
+          <p className="font-sans text-xs text-primary-foreground/60 tracking-widest">
             CREATED WITH LOVE FOR THE WEDDING OF {weddingConfig.bride.name.toUpperCase()} & {weddingConfig.groom.name.toUpperCase()}
           </p>
           <p className="font-sans text-xs text-gold/60 mt-2 tracking-widest">
