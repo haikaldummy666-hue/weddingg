@@ -23,7 +23,7 @@ const LinkGenerator = () => {
 *${name}* 
  
 بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
-Dengan memohon rahmat dan ridha Allah SWT, kami bermaksud mengundang *${name}* untuk hadir dalam acara pernikahan kami. 
+Dengan memohon rahmat dan ridha Allah SWT, kami bermaksud mengundang *${name}* untuk hadir dalam acara syukuran kami. 
  
 *Info lengkap pernikahan dapat dilihat melalui tautan berikut:* 
  
