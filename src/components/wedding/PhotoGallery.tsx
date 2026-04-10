@@ -9,6 +9,8 @@ export const PhotoGallery = () => {
   const isInView = useInView(ref);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [lightboxImageError, setLightboxImageError] = useState(false);
+  const lockedScrollYRef = useRef<number | null>(null);
+  const isLightboxOpen = selectedIndex !== null;
 
   const selectedPhoto = useMemo(() => {
     if (selectedIndex === null) return null;
@@ -16,7 +18,7 @@ export const PhotoGallery = () => {
   }, [selectedIndex]);
 
   useEffect(() => {
-    if (selectedIndex === null) return;
+    if (!isLightboxOpen) return;
     if (typeof window === "undefined") return;
     if (typeof document === "undefined") return;
 
@@ -27,26 +29,28 @@ export const PhotoGallery = () => {
     const previousWidth = body.style.width;
     const scrollY = window.scrollY;
 
+    lockedScrollYRef.current = scrollY;
     body.style.overflow = "hidden";
     body.style.position = "fixed";
     body.style.top = `-${scrollY}px`;
     body.style.width = "100%";
 
     return () => {
+      const restoreTo = lockedScrollYRef.current ?? scrollY;
+      lockedScrollYRef.current = null;
+
       body.style.overflow = previousOverflow;
       body.style.position = previousPosition;
       body.style.top = previousTop;
       body.style.width = previousWidth;
-
-      const topValue = Number.parseInt(previousTop || "0", 10);
-      const restoredScrollY = Number.isFinite(topValue) ? -topValue : scrollY;
-      window.scrollTo(0, restoredScrollY);
+      window.scrollTo(0, restoreTo);
     };
-  }, [selectedIndex]);
+  }, [isLightboxOpen]);
 
   useEffect(() => {
     if (selectedIndex === null) return;
     if (selectedPhoto === null) {
+      console.warn("[PhotoGallery] Invalid gallery index, closing lightbox", { selectedIndex });
       setSelectedIndex(null);
       return;
     }
@@ -99,6 +103,10 @@ export const PhotoGallery = () => {
   }, [selectedIndex]);
 
   const openLightbox = (index: number) => {
+    if (!weddingConfig.gallery[index]) {
+      console.warn("[PhotoGallery] openLightbox called with invalid index", { index });
+      return;
+    }
     setSelectedIndex(index);
     setLightboxImageError(false);
   };
@@ -273,7 +281,10 @@ export const PhotoGallery = () => {
                 alt="Gallery Preview"
                 loading="eager"
                 decoding="async"
-                onError={() => setLightboxImageError(true)}
+                onError={() => {
+                  console.warn("[PhotoGallery] Failed to load gallery image", { selectedIndex, src: selectedPhoto });
+                  setLightboxImageError(true);
+                }}
                 className="w-full h-full object-contain bg-background"
               />
             )}
