@@ -93,7 +93,7 @@ export const OpeningScreen = ({ onOpen, onStartOpening, guestName }: OpeningScre
         {/* Top Section: The Wedding Of (Elegant Fade) */}
         <div className="relative z-20 text-center animate-zoom-fade mt-4 md:mt-0 px-8">
           <p className="text-xs md:text-base font-cinzel uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 drop-shadow-md text-gold/90 leading-relaxed">
-            The Wedding Celebration Of
+            Wedding Party
           </p>
           <div className="w-12 h-[1px] bg-gold mx-auto" />
         </div>
