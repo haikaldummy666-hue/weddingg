@@ -27,15 +27,15 @@ _______
  
 Assalamualaikum Warahmatullahi Wabarakatuh 
  
-Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i PD PUI Kab.Sukabumi, untuk menghadiri acara pernikahan kami. 
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i *${name}*, untuk menghadiri acara pernikahan kami. 
  
-Berikut link undangan kami, untuk info lengkap dari acara, bisa kunjungi : 
+*Berikut link undangan kami, untuk info lengkap dari acara, bisa kunjungi :* 
  
 ${url} 
  
 Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu. 
  
-Wassalamualaikum Warahmatullahi Wabarakatuh 
+*Wassalamualaikum Warahmatullahi Wabarakatuh* 
  
 Terima Kasih 
  
