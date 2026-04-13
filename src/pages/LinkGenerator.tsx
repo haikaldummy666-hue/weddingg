@@ -20,23 +20,28 @@ const LinkGenerator = () => {
 
   const generateMessage = (name: string, url: string) => {
     return `Kepada Yth. 
+Bapak/Ibu/Saudara/i 
+Tamu Undangan 
 *${name}* 
+_______ 
  
-بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
-Dengan memohon rahmat dan ridha Allah SWT, kami bermaksud mengundang *${name}* untuk hadir dalam acara syukuran kami. 
+Assalamualaikum Warahmatullahi Wabarakatuh 
  
-*Info lengkap pernikahan dapat dilihat melalui tautan berikut:* 
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i PD PUI Kab.Sukabumi, untuk menghadiri acara pernikahan kami. 
+ 
+Berikut link undangan kami, untuk info lengkap dari acara, bisa kunjungi : 
  
 ${url} 
  
-Merupakan kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir dan memberi doa restu. 
+Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu. 
  
-*Undangan ini disampaikan melalui pesan ini. Mohon dimaklumi.* 
+Wassalamualaikum Warahmatullahi Wabarakatuh 
  
-جَزَاكُمُ اللهُ خَيْرًا كَثِيْرًا
+Terima Kasih 
  
-وَالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ
-${weddingConfig.bride.name} & ${weddingConfig.groom.name}`;
+Hormat kami, 
+${weddingConfig.bride.name} & ${weddingConfig.groom.name} 
+________`;
   };
 
   const handleGenerate = () => {
